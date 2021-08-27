@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic; // biblioteca necessária para utililar List<T>
 
 namespace DIO.Bank
 {
 	class Program
 	{
-		static List<Conta> listContas = new List<Conta>();
+		static List<Conta> listContas = new List<Conta>(); // armazena das contas
 		static void Main(string[] args)
 		{
 			string opcaoUsuario = ObterOpcaoUsuario();
@@ -52,7 +52,7 @@ namespace DIO.Bank
 			Console.Write("Digite o valor a ser depositado: ");
 			double valorDeposito = double.Parse(Console.ReadLine());
 
-            listContas[indiceConta].Depositar(valorDeposito);
+            listContas[indiceConta].Depositar(valorDeposito); // método da classe Conta
 		}
 
 		private static void Sacar()
@@ -116,17 +116,16 @@ namespace DIO.Bank
 
 			for (int i = 0; i < listContas.Count; i++)
 			{
-				Conta conta = listContas[i];
-				Console.Write("#{0} - ", i);
-				Console.WriteLine(conta);
+				Conta conta = listContas[i]; // instanciando contas
+				Console.WriteLine($"{i} - {conta}"); // interpolação de cadeia de caracteres
 			}
 		}
 
 		private static string ObterOpcaoUsuario()
 		{
 			Console.WriteLine();
-			Console.WriteLine("DIO Bank a seu dispor!!!");
-			Console.WriteLine("Informe a opção desejada:");
+			Console.WriteLine(" * CLOUD BANK S/A * ");
+			Console.WriteLine("Escolha uma opção: ");
 
 			Console.WriteLine("1- Listar contas");
 			Console.WriteLine("2- Inserir nova conta");

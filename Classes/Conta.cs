@@ -28,8 +28,8 @@ namespace DIO.Bank
             }
             this.Saldo -= valorSaque;
 
-            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
-            // https://docs.microsoft.com/pt-br/dotnet/standard/base-types/composite-formatting
+            Console.WriteLine($"Saldo atual da conta de {this.Nome} é {this.Saldo}");
+            // https://docs.microsoft.com/pt-br/dotnet/csharp/tutorials/string-interpolation
 
             return true;
 		}
@@ -38,17 +38,18 @@ namespace DIO.Bank
 		{
 			this.Saldo += valorDeposito;
 
-            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
+            Console.WriteLine($"Saldo atual da conta de {this.Nome} é {this.Saldo}");
 		}
 
 		public void Transferir(double valorTransferencia, Conta contaDestino)
 		{
-			if (this.Sacar(valorTransferencia)){
+			if (this.Sacar(valorTransferencia)) // faz a validação no método sacar
+			{
                 contaDestino.Depositar(valorTransferencia);
             }
 		}
 
-        public override string ToString()
+        public override string ToString() // sobreescrevendo um método 
 		{
             string retorno = "";
             retorno += "TipoConta " + this.TipoConta + " | ";
