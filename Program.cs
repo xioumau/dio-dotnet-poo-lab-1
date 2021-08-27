@@ -29,6 +29,9 @@ namespace DIO.Bank
 					case "5":
 						Depositar();
 						break;
+					case "6":
+						ExcluirConta();
+						break;
                     case "C":
 						Console.Clear();
 						break;
@@ -121,6 +124,18 @@ namespace DIO.Bank
 			}
 		}
 
+		private void ExcluirConta()
+		{
+			Console.WriteLine("Excluir conta");
+
+			Console.WriteLine("Digito o índice da conta a ser excluída: ");
+			int excluidaConta = int.Parse(Console.ReadLine());
+
+			listContas.Remove(listContas[excluidaConta]);
+
+			Console.WriteLine("Conta excluída com sucesso.");
+		}
+
 		private static string ObterOpcaoUsuario()
 		{
 			Console.WriteLine();
@@ -132,6 +147,7 @@ namespace DIO.Bank
 			Console.WriteLine("3- Transferir");
 			Console.WriteLine("4- Sacar");
 			Console.WriteLine("5- Depositar");
+			Console.WriteLine("6- Excluir conta");
             Console.WriteLine("C- Limpar Tela");
 			Console.WriteLine("X- Sair");
 			Console.WriteLine();
